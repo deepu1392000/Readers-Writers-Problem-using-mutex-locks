@@ -57,7 +57,7 @@ int main()
 		pthread_create(&(threads[i]),NULL,read_function,NULL);
 		pthread_create(&(threads[i+1]),NULL,write_function,NULL);
 	}
-	for(i=0;i<instruction_count;i++)
+	for(i=0;i<10;i++)
 	{
 		pthread_join(threads[i],NULL);
 	}
