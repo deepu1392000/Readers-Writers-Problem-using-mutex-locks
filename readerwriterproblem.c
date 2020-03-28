@@ -13,12 +13,12 @@ void *read_function()
 	}
 	reader_count++;
 	pthread_mutex_lock(&rl);
-	//sleep(2);
+	sleep(2);
 	printf("\n\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
 	printf("The Data read by reader is:-");
 	printf("%s",shared_attribute);
 	printf("\n-----------------------------------------------------------------\n");
-	printf("\n Number of readers in queue are:- %d\n",reader_count);
+	printf("\n Number of readers in queue are:- %d\n",(reader_count-1));
 	printf("\n-----------------------------------------------------------------\n");
 	printf("*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n\n\n");
 	reader_count--;
@@ -48,11 +48,8 @@ void *write_function()
 }
 int main()
 {
-	int instruction_count,i;
-	//printf("Enter the number of instructions:-");
-	//scanf("%d",&instruction_count);
-	instruction_count=5;
-	pthread_t threads[instruction_count];
+	int i;
+	pthread_t threads[5];
 	pthread_mutex_init(&rl,NULL);
 	pthread_mutex_init(&wl,NULL);
 	pthread_create(&(threads[0]),NULL,read_function,NULL);
