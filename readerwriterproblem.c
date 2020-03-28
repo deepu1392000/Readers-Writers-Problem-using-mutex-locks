@@ -36,6 +36,7 @@ void *read_function()
 void *write_function()
 {
 	pthread_mutex_lock(&wl);
+	sleep(10);
 	printf("\n\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n\n");
 	printf("Enter the data of your wish\n");
 	scanf("%s",shared_attribute);
