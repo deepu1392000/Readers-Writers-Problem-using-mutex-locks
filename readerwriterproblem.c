@@ -48,11 +48,12 @@ void *write_function()
 }
 int main()
 {
-	int i;
-	pthread_t threads[10];
+	int instruction_count,i;
+	insrtuction_count=10;
+	pthread_t threads[instruction_count];
 	pthread_mutex_init(&rl,NULL);
 	pthread_mutex_init(&wl,NULL);
-	for(i=0;i<10;i+=2)
+	for(i=0;i<instruction_count;i+=2)
 	{
 		pthread_create(&(threads[i]),NULL,read_function,NULL);
 		pthread_create(&(threads[i+1]),NULL,write_function,NULL);
