@@ -13,7 +13,7 @@ void *read_function()
 	}
 	reader_count++;
 	pthread_mutex_lock(&rl);
-	//sleep(2);
+	sleep(2);
 	printf("\n\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
 	printf("The Data read by reader is:-");
 	printf("%s",shared_attribute);
