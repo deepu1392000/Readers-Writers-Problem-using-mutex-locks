@@ -14,7 +14,7 @@ void *read_function()
 	reader_count++;
 	pthread_mutex_lock(&rl);
 	sleep(2);
-	printf("\n\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+	printf("\n\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n\n");
 	printf("The Data read by reader is:-");
 	printf("%s",shared_attribute);
 	printf("\n-----------------------------------------------------------------\n");
@@ -36,7 +36,7 @@ void *read_function()
 void *write_function()
 {
 	pthread_mutex_lock(&wl);
-	printf("\n\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n");
+	printf("\n\n*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*\n\n");
 	printf("Enter the data of your wish\n");
 	scanf("%s",shared_attribute);
 	printf("\n-----------------------------------------------------------------\n");
