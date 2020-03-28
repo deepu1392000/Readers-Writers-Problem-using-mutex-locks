@@ -49,15 +49,26 @@ void *write_function()
 int main()
 {
 	int i;
-	pthread_t threads[10];
+	pthread_t threads[20];
 	pthread_mutex_init(&rl,NULL);
 	pthread_mutex_init(&wl,NULL);
-	for(i=0;i<10;i+=2)
+	for(i=0;i<5;i++)
 	{
 		pthread_create(&(threads[i]),NULL,read_function,NULL);
-		pthread_create(&(threads[i+1]),NULL,write_function,NULL);
 	}
-	for(i=0;i<10;i++)
+	for(i=5;i<10;i++)
+	{
+		pthread_create(&(threads[5]),NULL,write_function,NULL);
+	}
+	for(i=10;i<15;i++)
+	{
+		pthread_create(&(threads[i]),NULL,read_function,NULL);
+	}
+	for(i=15;i<20;i++)
+	{
+		pthread_create(&(threads[5]),NULL,write_function,NULL);
+	}
+	for(i=0;i<20;i++)
 	{
 		pthread_join(threads[i],NULL);
 	}
