@@ -60,22 +60,7 @@ int main()
 	pthread_create(&(threads[2]),NULL,write_function,NULL);
 	pthread_create(&(threads[3]),NULL,read_function,NULL);
 	pthread_create(&(threads[4]),NULL,read_function,NULL);
-/*	for(i=0;i<instruction_count;i++)
-	{
-		printf("Enter 1-to write \n      2- to read\n");
-		int decision;
-		scanf("%d",&decision);
-		printf("YOU ENTERED %d",decision);
-		if(decision==1)
-		{
-			pthread_create(&(threads[i]),NULL,write_function,NULL);
-		}
-		else
-		{
-			pthread_create(&(threads[i]),NULL,read_function,NULL);
-		}
-	}
-*/	for(i=0;i<instruction_count;i++)
+	for(i=0;i<instruction_count;i++)
 	{
 		pthread_join(threads[i],NULL);
 	}
